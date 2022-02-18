@@ -79,7 +79,7 @@ void PrintCuterlys (bool cutlerys[6][2][4]){
 }
 
 
-void FillingChairs (std::vector <bool> tmpVec, std::vector<std::vector<bool>> chairs){
+void FillingChairs (std::vector <bool> tmpVec, std::vector<std::vector<bool> > chairs){
     for(int i=0; i<2; ++i){
         for(int j=0; j<6; ++j){
             tmpVec.push_back(true);
@@ -89,7 +89,7 @@ void FillingChairs (std::vector <bool> tmpVec, std::vector<std::vector<bool>> ch
 }
 
 
-void PrintChairs (std::vector <bool> tmpVec, std::vector<std::vector<bool>> chairs){
+void PrintChairs (std::vector <bool> tmpVec, std::vector<std::vector<bool> > chairs){
     for(int i=0; i<chairs.size(); ++i){
         for(int j=0; j<tmpVec.size(); ++j){
             std::cout<<tmpVec[j]<<"\t";
@@ -126,7 +126,7 @@ int main(){
                           {false, false}};
                        
   std::vector <bool> tmpVec;
-  std::vector <std::vector <bool>> chair;
+  std::vector <std::vector <bool> > chair;
   bool cutlerys[6][2][4]={};
   bool plates [6][2][3]={};
   
