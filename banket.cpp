@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 
+
 void FillingPlates (bool guests[6][2], bool plates[6][2][3]){
     for(int i=0; i<6; ++i){
         for(int j=0; j<2; ++j){
@@ -90,8 +91,8 @@ void FillingChairs (std::vector <bool> &tmpVec, std::vector<std::vector<bool> > 
 
 
 void PrintChairs (std::vector <bool> &tmpVec, std::vector<std::vector<bool> > &chairs){
-    for(int i=0; i<chairs.size(); ++i){
-        for(int j=0; j<tmpVec.size(); ++j){
+    for(int i=0; i<tmpVec.size(); ++i){
+        for(int j=0; j<chairs.size(); ++j){
 		if(tmpVec[j]==true){
 			 std::cout<<"Chair"<<"\t";
 		}else{
@@ -101,8 +102,19 @@ void PrintChairs (std::vector <bool> &tmpVec, std::vector<std::vector<bool> > &c
         }
         std::cout<<"\n";
     }
+    std::cout<<"\n";
 }
-    
+
+void AddingChairs (std::vector <bool> &tmpVec, std::vector<std::vector<bool> > &chair){
+	chair.clear();
+	for(int i=0; i<2; ++i){
+		for(int j=0;j<6; ++j){
+		tmpVec.insert(tmpVec.begin()+4, true);
+		}
+	chair.push_back(tmpVec);
+	}
+}    
+
 
 void PrintGuests (bool guests[6][2]){
     for(int i=0; i<6; ++i){
@@ -143,13 +155,12 @@ int main(){
   PrintPlates (plates);
   FillingCuterlys (guests, cutlerys);
   PrintCuterlys (cutlerys);
-  tmpVec.insert(tmpVec.begin()+4,true); //but really i think we  shall use push_back()
-
-  PrintChairs(tmpVec, chair);
+  AddingChairs(tmpVec,chair); //but really i think we  shall use push_back()
   cutlerys[3][2][0]=false;
   cutlerys[0][0][0]=false;
   cutlerys[3][2][0]=true;
   plates[0][0][2]=false;
+//  PrintChairs(tmpVec,chair);
   PrintCuterlys(cutlerys);
   PrintPlates(plates);
   
