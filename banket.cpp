@@ -91,6 +91,7 @@ void FillingChairs (std::vector <bool> &tmpVec, std::vector<std::vector<bool> > 
 
 
 void PrintChairs (std::vector <bool> &tmpVec, std::vector<std::vector<bool> > &chairs){
+	std::cout<<"\n";
     for(int i=0; i<tmpVec.size(); ++i){
         for(int j=0; j<chairs.size(); ++j){
 		if(tmpVec[i]==true){
@@ -106,7 +107,6 @@ void PrintChairs (std::vector <bool> &tmpVec, std::vector<std::vector<bool> > &c
 }
 
 void AddingChairs (std::vector <bool> &tmpVec, std::vector<std::vector<bool> > &chair){
-	chair.clear();
 	tmpVec.insert(tmpVec.begin()+4, true);
 	for(int i=0; i<2; ++i){
 	chair.push_back(tmpVec);
