@@ -114,11 +114,11 @@ void AddingChairs (std::vector <bool> &tmpVec, std::vector<std::vector<bool> > &
 	}
 	tmpVec.insert(tmpVec.begin()+5, true);
 	chair.push_back(tmpVec);
-	tmpVec.clear();
+//	tmpVec.clear();
 	for(int j=0; j<6; ++j){
 		tmpVec.push_back(true);
 	}
-	tmpVec.insert(tmpVec.begin()+7, false);
+	tmpVec.insert(tmpVec.begin()+6, false);
 	chair.push_back(tmpVec);
 }    
 
@@ -164,7 +164,7 @@ int main(){
   PrintPlates (plates);
   FillingCuterlys (guests, cutlerys);
   PrintCuterlys (cutlerys);
-  AddingChairs(tmpVec,chair); //but really i think we  shall use push_back()
+//  AddingChairs(tmpVec,chair); //but really i think we  shall use push_back()
   cutlerys[2][1][0]=false;
   cutlerys[0][0][0]=false;
   cutlerys[2][1][0]=true;
@@ -172,5 +172,6 @@ int main(){
   PrintChairs(tmpVec,chair);
   PrintCuterlys(cutlerys);
   PrintPlates(plates);
+  AddingChairs(tmpVec, chair);
   
 }
