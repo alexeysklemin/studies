@@ -94,13 +94,16 @@ void PrintChairs (std::vector <bool> &tmpVec, std::vector<std::vector<bool> > &c
 	std::cout<<"\n";
     for(int i=0; i<tmpVec.size(); ++i){
         for(int j=0; j<chairs.size(); ++j){
-		if(tmpVec[j]==true){
+		if(tmpVec[i]==true){
 			 std::cout<<"Chair"<<"\t";
 		}else{
-			std::cout<<"No chair"<<"\t";
+			if(tmpVec[i]==false){
+				std::cout<<"No chair"<<"\t";
+			}
+		 }
+
         }
-        
-        }
+
         std::cout<<"\n";
     }
     std::cout<<"\n";
@@ -115,10 +118,14 @@ void AddingChairs (std::vector <bool> &tmpVec, std::vector<std::vector<bool> > &
 	tmpVec.insert(tmpVec.begin()+5, true);
 	chair.push_back(tmpVec);
 //	tmpVec.clear();
-	for(int j=0; j<6; ++j){
+/*	for(int j=0; j<6; ++j){
 		tmpVec.push_back(true);
+		std::cout<<tmpVec[j]<<"\n";
 	}
-	tmpVec.insert(tmpVec.begin()+6, false);
+	tmpVec.push_back(false);*/
+	tmpVec.resize(6);
+	tmpVec.push_back(false);
+
 	chair.push_back(tmpVec);
 }    
 
@@ -169,9 +176,10 @@ int main(){
   cutlerys[0][0][0]=false;
   cutlerys[2][1][0]=true;
   plates[0][0][2]=false;
-  PrintChairs(tmpVec,chair);
+//  PrintChairs(tmpVec,chair);
   PrintCuterlys(cutlerys);
   PrintPlates(plates);
   AddingChairs(tmpVec, chair);
+  PrintChairs(tmpVec, chair);
   
 }
