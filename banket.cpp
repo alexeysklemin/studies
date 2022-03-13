@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-
+//
 
 void FillingPlates (bool guests[6][2], bool plates[6][2][3]){
     for(int i=0; i<6; ++i){
