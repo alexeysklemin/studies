@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-//
-//
+
+
 void FillingPlates (bool guests[6][2], bool plates[6][2][3]){
     for(int i=0; i<6; ++i){
         for(int j=0; j<2; ++j){
@@ -90,16 +90,15 @@ void FillingChairs (std::vector <bool> &tmpVec, std::vector<std::vector<bool> > 
 }
 
 
-void PrintChairs (std::vector <bool> &tmpVec, std::vector<std::vector<bool> > &chairs){
+void PrintChairs (std::vector<std::vector<bool> > &chairs){
 	std::cout<<"\n";
-    for(int i=0; i<tmpVec.size(); ++i){
-        for(int j=0; j<chairs.size(); ++j){
-		if(tmpVec[i]==true){
+    for(auto &item:chairs){
+        for(auto it:item){
+		if(it==true){
 			 std::cout<<"Chair"<<"\t";
 		}else{
-			if(tmpVec[i]==false){
-				std::cout<<"No chair"<<"\t";
-			}
+			std::cout<<"No chair"<<"\t";
+			
 		 }
 
         }
@@ -166,7 +165,7 @@ int main(){
   
   PrintGuests(guests);
   FillingChairs(tmpVec, chair);
-  PrintChairs(tmpVec, chair);
+  PrintChairs(chair);
   FillingPlates (guests, plates);
   PrintPlates (plates);
   FillingCuterlys (guests, cutlerys);
@@ -180,6 +179,6 @@ int main(){
   PrintCuterlys(cutlerys);
   PrintPlates(plates);
   AddingChairs(tmpVec, chair);
-  PrintChairs(tmpVec, chair);
+  PrintChairs(chair);
   
 }
