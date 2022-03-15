@@ -5,7 +5,7 @@ bool CheckingParams (int coordinates[2][2]){
 	if (((coordX0!=coordX1)&&(coordY0!=coordY1))||((coordX0>9)&&(coordX1>9))||((coordY0>9)&&(coordY1>9))){
 		return false;
 	}
-
+return true;
 }
 
 void  InputingCoordSubmarine (int coordinates[2][2]){
