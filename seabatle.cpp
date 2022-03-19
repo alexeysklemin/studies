@@ -46,17 +46,41 @@ bool CheckEngeged (int xb, int xf, int yb, int yf, bool installShips[10][10]){
 	return true;
 } 
 
+void  InitialFillingBoard (bool board[10][10]){
+
+	for(int i=0; i<10; ++i){
+		for(int j=0; j<10; ++j){
+			board[i][j]=false;
+		}
+	}
+}
+
+void PrintBoard (bool installedShips [10][10]){
+	
+	for(int i=0; i<10; ++i){
+		for(int j=0; j<10; ++j){
+			if(installedShips [i][j]==true){
+				std::cout<<"X"<<"\t";
+			}else{
+				std::cout<<" "<<"\t";
+			}
+		}
+		std::cout<<"\n";
+	}
+}
+
 
 int main (){
 
 	bool installShipsPlayerA  [10][10];
 	bool installShipPlayerB [10][10];
 	bool fireCoordinatesPlayerA [10][10];
-	bool fireCoordinatesPlayerB [10[10];
+	bool fireCoordinatesPlayerB [10][10];
 	int ships [4] = {1,2,3,4};
 	int  xb, xf, yb, yf;
 
-	
+	InitialFillingBoard(installShipsPlayerA);
+	PrintBoard(installShipsPlayerA);	
 	
 
 }
