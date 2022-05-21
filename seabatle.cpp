@@ -147,25 +147,17 @@ bool fireFunction(int x, int y, bool allocBoard[10][10], bool fireBoard[10][10])
 }
 
 
-void sunkShip(int x, int y, bool allocBoard[10][10], bool fireBoard[10][10]) {
-    int countA = 0;
-    int countF = 0;
-    for (int i = 0; i < 10; ++i) {
-        if ((fireBoard[i][y]==allocBoard[i][y])&&(allocBoard[i][y])) {
-            countA++;
-            countF++;
-        }
-       
-     }
-    if (countF == countA) {
-
-        std::cout << "Sunk"<<std::endl;
-
-    }
-
-    
-
-}
+int isWin (bool fireCoordinateBoard[10][10]){
+	int count =0;
+	for (int i=0; i<10; ++i){
+		for(int j=0; j<10; ++j){
+			if(fireCoordinateBoard[i][j]){
+				count++;
+			}
+		}	
+	}
+	return count;
+}		
 
 
 
@@ -188,7 +180,7 @@ int main() {
         std::cout<<"Enter coordinates of your "<<Ships[i]<<"\t";
         std::cin>>xb>>yb>>xf>>yf;
         bool rsltCheckCoordinates = checkCoordinates(xb,yb,xf,yf);
-        bool rsltCheckDistance =             checkEngegedDistance(xb,yb,xf,yf,allocationShipsPlayerA);
+        bool rsltCheckDistance =  checkEngegedDistance(xb,yb,xf,yf,allocationShipsPlayerA);
         bool rsltCheckPoints = checkEngegedPoint(xb,yb,xf,yf,allocationShipsPlayerA);
         if(checkLegalPoint(rsltCheckCoordinates,rsltCheckDistance,rsltCheckPoints)){
           if(i==3){
@@ -212,7 +204,7 @@ int main() {
         std::cout<<"Enter coordinates of your "<<Ships[i]<<"\t";
         std::cin>>xb>>yb>>xf>>yf;
         bool rsltCheckCoordinates = checkCoordinates(xb,yb,xf,yf);
-        bool rsltCheckDistance =             checkEngegedDistance(xb,yb,xf,yf,allocationShipsPlayerB);
+        bool rsltCheckDistance =  checkEngegedDistance(xb,yb,xf,yf,allocationShipsPlayerB);
         bool rsltCheckPoints = checkEngegedPoint(xb,yb,xf,yf,allocationShipsPlayerB);
         if(checkLegalPoint(rsltCheckCoordinates,rsltCheckDistance,rsltCheckPoints)){
           if(i==3){
@@ -228,6 +220,14 @@ int main() {
     }
   } 
 
+int fireA=0;
+int fireB=0;
+//fireA=isWin(fireCoordinatesPlayesrA);
+//fireB=isWin(fireCoordinatesPlayerB);
+
+while(fireA!=20 || fireB!=20){
+    fireA=isWin(fireCoordinatesPlayerA);
+    fireB=isWin(fireCoordinatesPlayerB);
 
     std::cout << "\n Input your fires coordinates" << "\t";
     std::cin >> x >> y;
@@ -237,4 +237,7 @@ int main() {
 
     fireFunction(x, y, allocationShipsPlayerA, fireCoordinatesPlayerB);
     printBoard(allocationShipsPlayerB, fireCoordinatesPlayerB);
-    sunkShip(x, y, allocationShipsPlayerA, fireCoordinatesPlayerB);
+
+}
+
+}
