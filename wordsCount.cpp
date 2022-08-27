@@ -20,6 +20,7 @@ file.open (filename);
 		searchWord = "Harold";
 		std::string resourceWord;
 		while(!file.eof()){
+			file >> searchWord;
 			if(searchWord==resourceWord){
 				count++;
 			}
