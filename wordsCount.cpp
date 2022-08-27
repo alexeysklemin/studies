@@ -5,29 +5,29 @@
 int main(){
 
 	std::string filename = "words.txt";
-	std::string line;
+	std::string searchWord = "Harold";
+	std::string resourceWord;
 	int count=0;
 
 std::ifstream file;
 file.open (filename);
 
-	if(!file){
-		std::cout<<"file is not opened";
-	}else{
+	if(file){
 		std::ifstream file (filename);
-		std::string searchWord;
-		//std::cin>> searchWord;
-		searchWord = "Harold";
-		std::string resourceWord;
 		while(!file.eof()){
-			file >> searchWord;
-			if(searchWord==resourceWord){
+			file>>resourceWord;
+			if(resourceWord==searchWord){
 				count++;
 			}
+		}
+	}else{
+		if(!file){
+			std::cout<<"File is not open";
+	;
 		}
 	}
 	file.close();
 
-	std::cout<<count;
+	std::cout<<count<<"\n";
 }
 
