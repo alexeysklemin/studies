@@ -9,10 +9,22 @@ int main(){
 	std::string name;
 	std::string surname;
 	int salary;
+	int sum=0;
+	int max=0;
 	std::string date;
+	
+	while(!file.eof()){
 
 	file>>name>>surname>>salary>>date;
+	
+	sum=sum+salary;
 
-	std::cout<<salary;
+	if(salary>max){
+		max=salary;
+	}
+
+	}
+	
+	std::cout<<max<<"\t"<<sum<<"\n";
 
 }
