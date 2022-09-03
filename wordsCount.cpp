@@ -13,7 +13,7 @@ std::ifstream file;
 file.open (filename);
 
 	if(file){
-		std::ifstream file (filename);
+
 		while(!file.eof()){
 			file>>resourceWord;
 			if(resourceWord==searchWord){

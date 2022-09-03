@@ -21,10 +21,11 @@ int main(){
 
 	if(salary>max){
 		max=salary;
+		std::cout<<name<<"\t"<<surname<<"\t"<<max<<"\t"<<date<<"\n";
 	}
 
 	}
 	
-	std::cout<<max<<"\t"<<sum<<"\n";
+	std::cout<<"Summ is\t"<<sum<<"\n";
 
 }
