@@ -5,7 +5,7 @@
 int main(){
 
 	std::string path;
-	std::string text;
+	char* text;
 
 	std::cout<<"Input path to your file ";
 	std::cin>>path;
@@ -14,10 +14,15 @@ int main(){
 	std::ifstream file;
 	file.open(path);
 	
-	
-	while(!file.eof()){
-		file>>text;
-		std::cout<<text;
+	if(file){
+		while(!file.eof()){
+			file>>text;
+			if(*text!='\0'){
+				std::cout<<text;
+			}
+		}
+	}else{
+		std::cout<<"File is not found\n";
 	}
 
 
