@@ -8,7 +8,8 @@ int main(){
 	char* text;
 
 	std::cout<<"Input path to your file ";
-	std::cin>>path;
+	std::cin>>path;  
+
 	
 
 	std::ifstream file;
@@ -17,7 +18,7 @@ int main(){
 	if(file){
 		while(!file.eof()){
 			file>>text;
-			if(*text!='\0'){
+			if(*text!= '\0'){
 				std::cout<<text;
 			}
 		}
