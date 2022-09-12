@@ -12,6 +12,7 @@ int main(){
 	int sum=0;
 	int max=0;
 	std::string date;
+	std::string winer;
 	
 	
 
@@ -22,12 +23,13 @@ int main(){
 		sum=sum+salary;
 		if(salary>max){
 			max=salary;
-			std::cout<<name<<"\t"<<surname<<"\t"<<max<<"\t"<<date<<"\n";
+			winer = name+" "+surname+" "+std::to_string(max)+" "+date;
 		}
 	}
 	
 	
 	
 	std::cout<<"Summ is\t"<<sum<<"\n";
+    std::cout<<winer;
 	file.close();
 }

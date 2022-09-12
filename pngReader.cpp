@@ -4,11 +4,12 @@
 
 
 int main(){
+	char exp[1024];
 
 
 	std::string filename = "liza.png";
 	std::cout<<"Input your file's path ";
-	std::cin>>filename;
+//	std::cin>>filename;
 	std::string searchString;
 	std::ifstream file;
 	file.open(filename, std::ios::binary);
@@ -17,10 +18,17 @@ int main(){
 		std::cout<<"File is not found";
 		std::cout<<"\n";
 	}else{
-		file >> searchString;
-		if(searchString.find("PNG") && filename.find(".png")){
-			std::cout<<"It is PNG file";
-		}
+		file.getline(exp, 1024, '\0');
+		char* expPtr = &exp;
+		while(exp!='\0'){
+			if(exp!='P'){
+				expPtr++;
+			}
+			if(exp!='N'){
+				expPtr++;
+			}
+
 	}
+
 	file.close();
 }
