@@ -5,7 +5,7 @@
 
 int main(){
 
-	std::ifstream file ("words.txt");
+	std::ifstream file ("words_t.txt");
 	std::string name;
 	std::string surname;
 	int salary;
@@ -16,8 +16,9 @@ int main(){
 	
 	
 
-	file>>name>>surname>>salary>>date;
+	//file>>name>>surname>>salary>>date;
 	while(!file.eof()){
+		salary=0;
 		file>>name>>surname>>salary>>date;
 
 		sum=sum+salary;

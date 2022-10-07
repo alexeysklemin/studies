@@ -8,10 +8,13 @@ int main(){
 	char filename[9];
 
 
-	filename = "liza.png";
+//	filename = "liza.png";
 	std::cout<<"Input your file's path ";
-//	std::cin>>filename;
+	std::cin>>filename;
 	//std::string searchString;
+	bool fil = false;
+	bool name = false;
+	int i = 0;
 	std::ifstream file;
 	file.open(filename, std::ios::binary);
 
@@ -20,15 +23,16 @@ int main(){
 		std::cout<<"\n";
 	}else{
 		file.getline(fileRead, 1024, '\0');
-		char* expPtr = &fileRead;
+		char* expPtr = fileRead;
 		expPtr++;
         if(*(expPtr+1) == 'P' && *(expPtr+2) == 'N' && *(expPtr+3) =='G'){
-            bool fil = true;
+           fil = true;
         }
-        expPtr = &filename;
-        expPtr = strlen(filename);
+        expPtr = filename;
+        i  = strlen(filename);
+	expPtr = i;
         if(*expPtr == 'g' && *(expPtr-1) == 'n' && *(expPtr-2) == 'p' && *(expPtr-3) =='.'){
-            bool name = true;
+            name = true;
         }
         if(fil && name){
             std::cout<<"It is *.png File";
