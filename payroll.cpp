@@ -30,7 +30,6 @@ int main(){
 	
 	
 	
-	std::cout<<"Summ is\t"<<sum<<"\n";
-    std::cout<<winer;
+	std::cout<<"Summ is\t"<<sum<<"\t"<<winer<<"\n";
 	file.close();
 }
