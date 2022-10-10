@@ -5,12 +5,12 @@
 
 int main(){
 	char fileRead[1024];
-	char filename[9];
+	std::string  filename;
 
 
-//	filename = "liza.png";
-	std::cout<<"Input your file's path ";
-	std::cin>>filename;
+	filename = "liza.png";
+//	std::cout<<"Input your file's path ";
+//	std::cin>>filename;
 	//std::string searchString;
 	bool fil = false;
 	bool name = false;
@@ -24,14 +24,15 @@ int main(){
 	}else{
 		file.getline(fileRead, 1024, '\0');
 		char* expPtr = fileRead;
-		expPtr++;
-        if(*(expPtr+1) == 'P' && *(expPtr+2) == 'N' && *(expPtr+3) =='G'){
+		expPtr++; 
+	
+        if(*(expPtr) == 'P' && *(expPtr+1) == 'N' && *(expPtr+2) =='G'){
            fil = true;
         }
-        expPtr = filename;
-        i  = strlen(filename);
-	expPtr = i;
-        if(*expPtr == 'g' && *(expPtr-1) == 'n' && *(expPtr-2) == 'p' && *(expPtr-3) =='.'){
+	std::cout<<fil<<"\n";
+        int rfil = filename.rfind(".png");
+	 std::cout<<rfil<<"\n";
+        if(rfil<5){
             name = true;
         }
         if(fil && name){
