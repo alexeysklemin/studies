@@ -16,7 +16,7 @@ int main(){
 	
 	
 
-	//file>>name>>surname>>salary>>date;
+	if(file){
 	while(!file.eof()){
 		salary=0;
 		file>>name>>surname>>salary>>date;
@@ -26,6 +26,9 @@ int main(){
 			max=salary;
 			winer = name+" "+surname+" "+std::to_string(max)+" "+date;
 		}
+	}
+	}else{
+		std::cout<<"file not found\n";
 	}
 	
 	
