@@ -10,20 +10,39 @@ void defSector (int* sectoRing, int MAX_SECTOR, int &point){
     }
 }
 
-void readindQuastion (int *sectoRing, char quastion[1024]){
+void readindQuastion (int *sectoRing, char* quastionAlone){
+    std::fstream(fileQ);
+    fileQ.open("quastion.txt");
+    int count =0;
+    if(fileQ){
+        while(!fileQ.eof()){
+            read();
+            count++;
+        }
+    }
     
 }
 
-
+void readindQuastion (int *sectoRing, char* answerAlone){
+    std::fstream(fileA);
+    fileA.open("answer.txt");
+    int count =0;
+    if(fileQ){
+        while(!fileA.eof()){
+            read();
+            count++;
+        }
+    }
+    
+}
 int main(){
+    
+    std::string quastionAlone [13];
+    std::string answerAlone [13];
 
-	std::string quastion = "quastion.txt";
-	std::string answer = "answer.txt";'
-
-	std::string quastionAlone [1][13];
-    std::string answerAlone [1][13];
     int sectoRing = 1;
     int MAX_SECTOR = 13;
+    
     int *secPtr = &sectoRing;
     
     

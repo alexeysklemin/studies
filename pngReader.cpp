@@ -4,7 +4,7 @@
 #include <cstring>
 
 int main(){
-	char fileRead[1024];
+	char fileRead[8];
 	std::string  filename;
 
 
@@ -22,23 +22,25 @@ int main(){
 		std::cout<<"File is not found";
 		std::cout<<"\n";
 	}else{
-		file.getline(fileRead, 1024, '\0');
+		file.getline(fileRead, 8, '\0');
 		char* expPtr = fileRead;
-		expPtr++; 
-	
-        if(*(expPtr) == 'P' && *(expPtr+1) == 'N' && *(expPtr+2) =='G'){
+		//expPtr++;
+	std::cout<<*(expPtr+3)<<"\n"; 
+	std::cout<<(int)*expPtr<<"\t"<<*(expPtr+1)<<"\t"<<*(expPtr+2)<<"\t"<<*(expPtr+3)<<"\n";
+        if(*(expPtr+1) == 'P' && *(expPtr+2) == 'N' && *(expPtr+3) =='G' && (int)*expPtr == -119){
            fil = true;
         }
-	std::cout<<fil<<"\n";
+	//std::cout<<fil<<"\n";
         int rfil = filename.rfind(".png");
-	 std::cout<<rfil<<"\n";
+//	 std::cout<<rfil<<"\n";
         if(rfil<5){
             name = true;
         }
+	std::cout<<name<<"\t"<<fil<<"\n";
         if(fil && name){
-            std::cout<<"It is *.png File";
+            std::cout<<"It is *.png File\n";
         }else{
-            std::cout<<"It is not *.png file";
+            std::cout<<"It is not *.png file\n";
         }
             
 
