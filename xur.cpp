@@ -13,6 +13,9 @@ void defSector (int* sectoRing, int MAX_SECTOR, int &point){
 void readindQuastion (int *sectoRing, char* quastionAlone){
     std::fstream(fileQ);
     fileQ.open("quastion.txt");
+	if(!fileQ){
+		std::cout<<"file is not found";
+	}else{
     int count =0;
     if(fileQ){
         while(!fileQ.eof()){
@@ -20,20 +23,25 @@ void readindQuastion (int *sectoRing, char* quastionAlone){
             count++;
         }
     }
-    
+  }
+fileQ.close();
 }
 
 void readindQuastion (int *sectoRing, char* answerAlone){
     std::fstream(fileA);
     fileA.open("answer.txt");
-    int count =0;
+    if(!fileA){
+	std::cout<<"file is not found";
+	}else{
+		int count =0;
     if(fileQ){
         while(!fileA.eof()){
             read();
             count++;
         }
     }
-    
+  }
+fileA.close();
 }
 int main(){
     
