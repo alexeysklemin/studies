@@ -21,7 +21,7 @@ void readindQuastion (int *sectoRing, std::string quastionAlone[13]){
     if(fileQ){
         while(!fileQ.eof()){
             fileQ.getline(quastion, 128, '\0');
-		quastionAlone[count]+=*quastion;
+		quastionAlone[count]=quastion;
             count++;
         }
     }
@@ -40,7 +40,7 @@ void readindAnswer (int *sectoRing, std::string answerAlone[13]){
     if(fileA){
         while(!fileA.eof()){
             fileA.getline(answer, 128, '\0');
-            answerAlone[count]+=answer;
+            answerAlone[count]=answer;
             count++;
         }
     }
