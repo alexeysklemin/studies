@@ -10,7 +10,7 @@ void defSector (int* sectoRing, int MAX_SECTOR, int &point){
     }
 }
 
-void readindQuastion (int *sectoRing, std::string quastionAlone[13]){
+void readindQuastion ( std::string* quastionAlone){
     std::fstream(fileQ);
     fileQ.open("quastion.txt");
 	if(!fileQ){
@@ -29,7 +29,7 @@ void readindQuastion (int *sectoRing, std::string quastionAlone[13]){
 fileQ.close();
 }
 
-void readindAnswer (int *sectoRing, std::string answerAlone[13]){
+void readindAnswer ( std::string*  answerAlone){
     std::fstream(fileA);
     fileA.open("answer.txt");
     if(!fileA){
@@ -59,8 +59,8 @@ int main(){
     int *secPtr = &sectoRing;
     
     defSector (&sectoRing, MAX_SECTOR, point);
-    readindQuastion (&sectoRing, quastionAlone);
-    readindAnswer (&sectoRing, answerAlone);
+    readindQuastion  (quastionAlone);
+    readindAnswer (answerAlone);
     
     
     std::cout<<quastionAlone[point]<<"\t"<<answerAlone[point]<<"\n";
