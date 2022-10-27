@@ -10,7 +10,7 @@ void defSector (int* sectoRing, int MAX_SECTOR, int &point){
     }
 }
 
-void readindQuastion ( std::string* quastionAlone){
+void readindQuastion (std::string  *quastionAlone){
     std::fstream(fileQ);
     fileQ.open("quastion.txt");
 	if(!fileQ){
@@ -20,8 +20,8 @@ void readindQuastion ( std::string* quastionAlone){
 	char  quastion[128];
     if(fileQ){
         while(!fileQ.eof()){
-            fileQ.getline(quastion, 128, '\0');
-		quastionAlone[count]=quastion;
+            fileQ.getline(quastion, 128);
+            quastionAlone[count]=quastion;
             count++;
         }
     }
@@ -29,7 +29,7 @@ void readindQuastion ( std::string* quastionAlone){
 fileQ.close();
 }
 
-void readindAnswer ( std::string*  answerAlone){
+void readindAnswer (std::string *answerAlone){
     std::fstream(fileA);
     fileA.open("answer.txt");
     if(!fileA){
@@ -39,8 +39,8 @@ void readindAnswer ( std::string*  answerAlone){
         char answer[128];
     if(fileA){
         while(!fileA.eof()){
-            fileA.getline(answer, 128, '\0');
-            answerAlone[count]=answer;
+            fileA.getline(answer, 128);
+           answerAlone[count]=answer;
             count++;
         }
     }
@@ -49,22 +49,34 @@ fileA.close();
 }
 int main(){
     
-    std::string quastionAlone [13];
-    std::string answerAlone [13];
+    std::string  quastionAlone [13] = {};
+    std::string  answerAlone [13] = {};
 
     int sectoRing = 1;
     int MAX_SECTOR = 13;
     int point =1;
     
     int *secPtr = &sectoRing;
-    
+    int sectors[13];
+    std::string answer;
+
+    while(true){
+
+    std::cout<<"Input point ";
+    std::cin>>point;
+
     defSector (&sectoRing, MAX_SECTOR, point);
     readindQuastion  (quastionAlone);
     readindAnswer (answerAlone);
     
-    
-    std::cout<<quastionAlone[point]<<"\t"<<answerAlone[point]<<"\n";
-    
+    std::<<"You've got this question"<<std::endl;
+    std::cout<<quastionAlone[*secPtr]<<std::endl;
+
+   std::cout<<"Pur your answer ";
+   std::cin>>answer;
+
+
+}
     
 
 }
