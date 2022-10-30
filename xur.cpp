@@ -59,24 +59,33 @@ int main(){
     int *secPtr = &sectoRing;
     int sectors[13];
     std::string answer;
-
+    
+    readindQuastion  (quastionAlone);
+    readindAnswer (answerAlone);
+    
     while(true){
 
     std::cout<<"Input point ";
     std::cin>>point;
 
     defSector (&sectoRing, MAX_SECTOR, point);
-    readindQuastion  (quastionAlone);
-    readindAnswer (answerAlone);
+    *secPtr = &sectoRing;
     
     std::<<"You've got this question"<<std::endl;
     std::cout<<quastionAlone[*secPtr]<<std::endl;
 
    std::cout<<"Pur your answer ";
    std::cin>>answer;
+   
+   if(answer == answerAlone[*secPtr]){
+       
+       std::cout<<"You are right";
+   }else{
+       std::cout<<"No, You are wrong";
+   }
 
 
-}
+ }
     
 
 }
