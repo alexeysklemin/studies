@@ -47,6 +47,18 @@ void readindAnswer (std::string *answerAlone){
   }
 fileA.close();
 }
+
+bool checkSectors(int *sectors){
+  bool out;
+  for(int i=0; i<13; ++i){
+    if(sectors[i]==1){
+      out&=1;
+    }
+    
+  }
+  return out;
+}
+
 int main(){
     
     std::string  quastionAlone [13] = {};
@@ -54,7 +66,7 @@ int main(){
 
     int sectoRing = 1;
     int MAX_SECTOR = 13;
-    int point =1;
+    std::string Point;
     
     int *secPtr = &sectoRing;
     int sectors[13];
@@ -66,26 +78,36 @@ int main(){
     while(true){
 
     std::cout<<"Input point ";
-    std::cin>>point;
+    std::getline (std::cin, Point);
+    int point = std::stoi(Point);
 
     defSector (&sectoRing, MAX_SECTOR, point);
-    *secPtr = &sectoRing;
+    *secPtr = sectoRing;
     
-    std::<<"You've got this question"<<std::endl;
+    std::cout<<"You've got this question"<<std::endl;
     std::cout<<quastionAlone[*secPtr]<<std::endl;
+    std::cout<<"\n";
 
-   std::cout<<"Pur your answer ";
-   std::cin>>answer;
-   
-   if(answer == answerAlone[*secPtr]){
-       
-       std::cout<<"You are right";
+ 
+
+   std::cout<<"Put your answer ";
+   std::getline (std::cin, answer);
+  
+  std::cout<<std::endl;
+  
+  
+  std::cout<<"\n";
+  
+   if (answerAlone[*secPtr] == answer){
+     std::cout<<"You are right";
+     sectors[*secPtr]+=1;
    }else{
-       std::cout<<"No, You are wrong";
-   }
+     std::cout<<"You are wrong";
+     if(!checkSectors(sectors)) return  0;
+     }
+  
 
-
- }
+}
     
 
 }
