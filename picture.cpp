@@ -6,7 +6,17 @@
 int main() {
   int pic[1000][1000];
   int sizeX, sizeY;
-  std::cin>>sizeX>>sizeY;
+  std::cout<<"Input metrics of picture\n";
+
+
+  do{
+	if(sizeX>1000 || sizeY>1000){
+		std::cout<<"Incorrect size\n";
+	}
+	std::cin>>sizeX>>sizeY;
+  }
+  while(sizeX>1000 || sizeY>1000);
+
   std::string filename ("pic.txt");
   std::ofstream file;
   file.open(filename);
