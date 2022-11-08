@@ -13,9 +13,12 @@ int main(){
 	std::string  salary;
 	std::string date;
 	std::string person;
+	char command;
 
-	while(true){
+	do{
 	
+	std::cout<<"Input your command: (a - append datas, e - exit programm) ";
+	std::cin>>command;
 	person = " ";
 	std::getline(std::cin, names);
 	std::getline(std::cin, salary);
@@ -30,6 +33,8 @@ int main(){
 
 		out<<"\n"<<person<<"\n";
 	}
-	out.close();
+	
    }
+   while(command!='e');
+   out.close();
 }
