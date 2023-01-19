@@ -4,10 +4,14 @@
 
 int main(){
 
-	/*std::string firstPerson = "Tom Hank 34500 01.04.2019";
-	std::string secPerson = "Alice Woddecker 56000 09.09.2020";
-	std::string thirdPerson = "Woody Alen 45600 09.10.2921";
-	std::string forthPerson = "Alex Sklemin 34700 23.07.2022"*/;
+	bool checkingDate(std::string date){
+        if(date.rfind(".")!=4){
+            return false
+        }
+        if(date.find(".")!=2{
+            return false
+        }
+    }
 
 	std::string names;
 	std::string  salary;
@@ -18,7 +22,7 @@ int main(){
 	do{
 	
 	std::cout<<"Input your command: (a - append datas, e - exit programm) ";
-	std::cin>>command;
+	std::getline(std::cin,comm;
 	person = " ";
 	std::getline(std::cin, names);
 	std::getline(std::cin, salary);
@@ -33,8 +37,8 @@ int main(){
 
 		out<<"\n"<<person<<"\n";
 	}
-	
+	out.close();
    }
-   while(command!='e');
-   out.close();
+   while(command=='a');
+ 
 }
